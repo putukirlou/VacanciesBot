@@ -3,9 +3,7 @@ from bs4 import BeautifulSoup
 import telebot
 
 from aiogram import Bot, Dispatcher
-
 import time
-
 from threading import Thread
 
 import os
