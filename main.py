@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import telebot
-from telebot import types
-from aiogram import Bot, Dispatcher, types
+
+from aiogram import Bot, Dispatcher
 
 import time
 
@@ -21,21 +21,8 @@ bot = telebot.TeleBot(token)
 # Обработчик команды /start
 @bot.message_handler(commands=['start'])
 def handle_start(message):
-    bot.send_message(message.chat.id, f"""😎 Здравствуй, я бот способный пересылать актуальные заказы на фриланс биржах в твои чаты. \nДля добавления меня в твой чат - пиши @DarthAnve\n\nСейчас я работаю в этих чатах:\nБИРЖА ВАКАНСИЙ АНВИ (https://t.me/+-UifmZqomSA0ZjZi)""")
+    bot.send_message(message.chat.id, f"""😎 Здравствуй, я бот способный пересылать актуальные заказы на фриланс биржах в твои чаты. \nДля добавления меня в твой чат - пиши @DarthAnve\n\nСейчас я работаю в этих чатах:\nБИРЖА ВАКАНСИЙ АНВИ (https://t.me/+YpNr2394SAwzOTRi)""")
 
-
-def getSoupWithWrite(url):
-    req = requests.get(url)
-    with open('index.html', 'wt', encoding='utf-8') as file:
-        file.write(req.text)
-    soup = BeautifulSoup(req.text, 'lxml')
-    return soup
-
-
-def get_last_call():
-    with open('lastOrder.log', 'rt') as file:
-        last_call = file.read()
-    return last_call
 
 def getSoup(url):
     req = requests.get(url)
