@@ -3,7 +3,9 @@ from bs4 import BeautifulSoup
 import telebot
 
 from aiogram import Bot, Dispatcher
+
 import time
+
 from threading import Thread
 
 import os
@@ -48,14 +50,14 @@ def parsHabrDesign():
             item.find(class_='task__title').find('a').get('href')
         priceTask = item.find(class_='count').get_text()
 
-        with open('lastOrder.log', 'r') as file:
+        with open('logs.log', 'r') as file:
             if nameTask in file.read():
                 continue
 
         text = f"""#дизайн\n\nНа Habr появился новый заказ!\n\nНазвание: {nameTask};\n\nЦена: {priceTask};\n\nСсылка: {urlTask}"""
         sendNotification(text)
 
-        with open('lastOrder.log', 'a') as file:
+        with open('logs.log', 'a') as file:
             file.write(nameTask + "\n")
 
 
@@ -69,14 +71,14 @@ def parsHabrDesignSafety():
             item.find(class_='task__title').find('a').get('href')
         priceTask = item.find(class_='count').get_text()
 
-        with open('lastOrder.log', 'r') as file:
+        with open('logs.log', 'r') as file:
             if nameTask in file.read():
                 continue
 
         text = f"""🟢 #безопасная_сделка  #дизайн\n\nНа Habr появился новый заказ!\n\nНазвание: {nameTask};\n\nЦена: {priceTask};\n\nСсылка: {urlTask}"""
         sendNotification(text)
 
-        with open('lastOrder.log', 'a') as file:
+        with open('logs.log', 'a') as file:
             file.write(nameTask + "\n")
 
 
@@ -90,14 +92,14 @@ def parsHabrContent():
             item.find(class_='task__title').find('a').get('href')
         priceTask = item.find(class_='count').get_text()
 
-        with open('lastOrder.log', 'r') as file:
+        with open('logs.log', 'r') as file:
             if nameTask in file.read():
                 continue
 
         text = f"""#контент\n\nНа Habr появился новый заказ!\n\nНазвание: {nameTask};\n\nЦена: {priceTask};\n\nСсылка: {urlTask}"""
         sendNotification(text)
 
-        with open('lastOrder.log', 'a') as file:
+        with open('logs.log', 'a') as file:
             file.write(nameTask + "\n")
 
 
@@ -111,14 +113,14 @@ def parsHabrContentSafety():
             item.find(class_='task__title').find('a').get('href')
         priceTask = item.find(class_='count').get_text()
 
-        with open('lastOrder.log', 'r') as file:
+        with open('logs.log', 'r') as file:
             if nameTask in file.read():
                 continue
 
         text = f"""🟢 #безопасная_сделка  #контент\n\nНа Habr появился новый заказ!\n\nНазвание: {nameTask};\n\nЦена: {priceTask};\n\nСсылка: {urlTask}"""
         sendNotification(text)
 
-        with open('lastOrder.log', 'a') as file:
+        with open('logs.log', 'a') as file:
             file.write(nameTask + "\n")
 
 
@@ -132,14 +134,14 @@ def parsHabrDevelopment():
             item.find(class_='task__title').find('a').get('href')
         priceTask = item.find(class_='count').get_text()
 
-        with open('lastOrder.log', 'r') as file:
+        with open('logs.log', 'r') as file:
             if nameTask in file.read():
                 continue
 
         text = f"""#разработка\n\nНа Habr появился новый заказ!\n\nНазвание: {nameTask};\n\nЦена: {priceTask};\n\nСсылка: {urlTask}"""
         sendNotification(text)
 
-        with open('lastOrder.log', 'a') as file:
+        with open('logs.log', 'a') as file:
             file.write(nameTask + "\n")
 
 
@@ -153,14 +155,14 @@ def parsHabrDevelopmentSafety():
             item.find(class_='task__title').find('a').get('href')
         priceTask = item.find(class_='count').get_text()
 
-        with open('lastOrder.log', 'r') as file:
+        with open('logs.log', 'r') as file:
             if nameTask in file.read():
                 continue
 
         text = f"""🟢 #безопасная_сделка  #разработка\n\nНа Habr появился новый заказ!\n\nНазвание: {nameTask};\n\nЦена: {priceTask};\n\nСсылка: {urlTask}"""
         sendNotification(text)
 
-        with open('lastOrder.log', 'a') as file:
+        with open('logs.log', 'a') as file:
             file.write(nameTask + "\n")
 
 
@@ -174,14 +176,14 @@ def parsHabrTesting():
             item.find(class_='task__title').find('a').get('href')
         priceTask = item.find(class_='count').get_text()
 
-        with open('lastOrder.log', 'r') as file:
+        with open('logs.log', 'r') as file:
             if nameTask in file.read():
                 continue
 
         text = f"""#тестирование\n\nНа Habr появился новый заказ!\n\nНазвание: {nameTask};\n\nЦена: {priceTask};\n\nСсылка: {urlTask}"""
         sendNotification(text)
 
-        with open('lastOrder.log', 'a') as file:
+        with open('logs.log', 'a') as file:
             file.write(nameTask + "\n")
 
 
@@ -195,14 +197,14 @@ def parsHabrTestingSafety():
             item.find(class_='task__title').find('a').get('href')
         priceTask = item.find(class_='count').get_text()
 
-        with open('lastOrder.log', 'r') as file:
+        with open('logs.log', 'r') as file:
             if nameTask in file.read():
                 continue
 
         text = f"""🟢 #безопасная_сделка  #тестирование\n\nНа Habr появился новый заказ!\n\nНазвание: {nameTask};\n\nЦена: {priceTask};\n\nСсылка: {urlTask}"""
         sendNotification(text)
 
-        with open('lastOrder.log', 'a') as file:
+        with open('logs.log', 'a') as file:
             file.write(nameTask + "\n")
 
 
@@ -216,14 +218,14 @@ def parsHabrAdmin():
             item.find(class_='task__title').find('a').get('href')
         priceTask = item.find(class_='count').get_text()
 
-        with open('lastOrder.log', 'r') as file:
+        with open('logs.log', 'r') as file:
             if nameTask in file.read():
                 continue
 
         text = f"""#администрирование\n\nНа Habr появился новый заказ!\n\nНазвание: {nameTask};\n\nЦена: {priceTask};\n\nСсылка: {urlTask}"""
         sendNotification(text)
 
-        with open('lastOrder.log', 'a') as file:
+        with open('logs.log', 'a') as file:
             file.write(nameTask + "\n")
 
 
@@ -237,14 +239,14 @@ def parsHabrAdminSafety():
             item.find(class_='task__title').find('a').get('href')
         priceTask = item.find(class_='count').get_text()
 
-        with open('lastOrder.log', 'r') as file:
+        with open('logs.log', 'r') as file:
             if nameTask in file.read():
                 continue
 
         text = f"""🟢 #безопасная_сделка  #администрирование\n\nНа Habr появился новый заказ!\n\nНазвание: {nameTask};\n\nЦена: {priceTask};\n\nСсылка: {urlTask}"""
         sendNotification(text)
 
-        with open('lastOrder.log', 'a') as file:
+        with open('logs.log', 'a') as file:
             file.write(nameTask + "\n")
 
 
@@ -258,14 +260,14 @@ def parsHabrMarketing():
             item.find(class_='task__title').find('a').get('href')
         priceTask = item.find(class_='count').get_text()
 
-        with open('lastOrder.log', 'r') as file:
+        with open('logs.log', 'r') as file:
             if nameTask in file.read():
                 continue
 
         text = f"""#маркетинг\n\nНа Habr появился новый заказ!\n\nНазвание: {nameTask};\n\nЦена: {priceTask};\n\nСсылка: {urlTask}"""
         sendNotification(text)
 
-        with open('lastOrder.log', 'a') as file:
+        with open('logs.log', 'a') as file:
             file.write(nameTask + "\n")
 
 
@@ -279,14 +281,14 @@ def parsHabrMarketingSafety():
             item.find(class_='task__title').find('a').get('href')
         priceTask = item.find(class_='count').get_text()
 
-        with open('lastOrder.log', 'r') as file:
+        with open('logs.log', 'r') as file:
             if nameTask in file.read():
                 continue
 
         text = f"""🟢 #безопасная_сделка  #маркетинг\n\nНа Habr появился новый заказ!\n\nНазвание: {nameTask};\n\nЦена: {priceTask};\n\nСсылка: {urlTask}"""
         sendNotification(text)
 
-        with open('lastOrder.log', 'a') as file:
+        with open('logs.log', 'a') as file:
             file.write(nameTask + "\n")
 
 
@@ -300,14 +302,14 @@ def parsHabrOther():
             item.find(class_='task__title').find('a').get('href')
         priceTask = item.find(class_='count').get_text()
 
-        with open('lastOrder.log', 'r') as file:
+        with open('logs.log', 'r') as file:
             if nameTask in file.read():
                 continue
 
         text = f"""#разное\n\nНа Habr появился новый заказ!\n\nНазвание: {nameTask};\n\nЦена: {priceTask};\n\nСсылка: {urlTask}"""
         sendNotification(text)
 
-        with open('lastOrder.log', 'a') as file:
+        with open('logs.log', 'a') as file:
             file.write(nameTask + "\n")
 
 
@@ -321,14 +323,14 @@ def parsHabrOtherSafety():
             item.find(class_='task__title').find('a').get('href')
         priceTask = item.find(class_='count').get_text()
 
-        with open('lastOrder.log', 'r') as file:
+        with open('logs.log', 'r') as file:
             if nameTask in file.read():
                 continue
 
         text = f"""🟢 #безопасная_сделка  #разное\n\nНа Habr появился новый заказ!\n\nНазвание: {nameTask};\n\nЦена: {priceTask};\n\nСсылка: {urlOrder}"""
         sendNotification(text)
 
-        with open('lastOrder.log', 'a') as file:
+        with open('logs.log', 'a') as file:
             file.write(nameTask + "\n")
 
 
@@ -344,7 +346,7 @@ def startHabr():
             parsHabrDevelopment()
             time.sleep(77)
             parsHabrAdmin()
-            time.sleep(50)
+            time.sleep(91)
             parsHabrMarketing()
             time.sleep(70)
             parsHabrOther()
@@ -358,13 +360,13 @@ def startHabr():
             parsHabrDesignSafety()
             time.sleep(65)
             parsHabrAdminSafety()
-            time.sleep(50)
+            time.sleep(107)
             parsHabrMarketingSafety()
             time.sleep(70)
             parsHabrOtherSafety()
             time.sleep(80)
             parsHabrTestingSafety()
-            time.sleep(53)
+            time.sleep(93)
         except requests.exceptions.ConnectionError:
             print(
                 'Не удалось установить соединение с сервером. Проверьте подключение с интернетом.')
@@ -374,8 +376,8 @@ def startHabr():
 def main():
     print('Бот запускается')
 
-    if not os.path.exists('lastOrder.log'):
-        with open('lastOrder.log', 'wt') as file:
+    if not os.path.exists('logs.log'):
+        with open('logs.log', 'wt') as file:
             file.write('Start\n')
         print('Файл log создан')
 
