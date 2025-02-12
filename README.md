@@ -28,4 +28,4 @@ VacanciesBot - это бот который представляет собой 
 
 Автор: Попова Валерия Сергеевна (Putukirlou); 
 Контактная информация: почта: popova_vs@inbox.ru
-telegram: @DarthAnve
+telegram: @ANV1E
